@@ -1,0 +1,102 @@
+header {
+  height: 100px;
+  background-color: black;
+  color: white;
+}
+.logo {
+  max-height: 70px;
+  margin: auto;
+}
+nav {
+  height: 40;
+}
+
+ul {
+  list-style: none;
+  float: left;
+}
+
+ul > li {
+  margin: 0;
+  padding: 0;
+  float: left;
+  position: relative;
+  height: 30;
+}
+ul > li > a {
+  padding: 10px;
+  color: #444;
+  text-decoration: none;
+}
+ul > li > a:hover,
+ul > li:hover > a {
+  color: red;
+  text-decoration: underline;
+}
+ul > li ul {
+  padding: 0;
+  position: absolute;
+  display: none;
+  left: 0px;
+  top: 30px;
+  width: 200px;
+  text-align: left;
+  background-color: burlywood;
+}
+ul > li ul li {
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  float: none;
+  height: auto;
+}
+
+ul > li ul li a {
+  padding: 10px 20px;
+  color: gray;
+  text-decoration: none;
+  display: block;
+}
+
+ul > li ul li a:hover,
+ul > li ul li:hover {
+  color: teal;
+}
+
+.kontener {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  height: auto;
+  min-height: 50px;
+  background-color: khaki;
+}
+
+article {
+  color: darkgray;
+}
+
+tarticle {
+  font-style: italic;
+  font-size: 18px;
+}
+
+asource {
+font-size: 8pix;
+color: grey;
+}
+
+.pasekBoczny {
+  border-left: 1px dotted black;
+  background-color: yellowgreen;
+}
+
+footer {
+  background-color: black;
+  text-align: right;
+  color: white;
+  height: 50px;
+  display: block;
+  bottom: 0px;
+  width: 100%;
+  position: fixed;
+}

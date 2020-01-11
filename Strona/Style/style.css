@@ -1,0 +1,115 @@
+ul {
+    list-style: none;
+    float: left;
+}
+
+ul>li {
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: relative;
+    height: 30px;
+}
+
+ul>li>a {
+    padding: 10px;
+    color: #420;
+    text-decoration: none;
+}
+
+ul>li>a:hover,
+ul>li:hover>a {
+    color: blue;
+    text-decoration: underline;
+}
+
+ul>li:hover ul {
+    display: block;
+    position: absolute;
+}
+
+ul>li ul li {
+    position: relative;
+    float: none;
+    height: auto;
+}
+
+ul>li ul li>a:hover,
+ul>li ul li:hover> {
+    color: red;
+    position: relative;
+    float: none;
+    height: auto;
+}
+
+ul>li ul {
+    padding: 0;
+    position: absolute;
+    display: none;
+    left: 0px;
+    top: 60px;
+    width: 200px;
+    text-align: left;
+    background-color: antiquewhite;
+    border: 1px solid #ccc;
+}
+
+header {
+    background-color: blue;
+    height: 100px;
+    color: white;
+    text-align: center;
+}
+
+.tytulNaglowka:hover {
+    color: red;
+}
+
+.logo {
+    max-height: 80;
+    margin: auto;
+}
+
+.kontener {
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    float: left;
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.glownaKolumna {
+    float: left;
+    position: relative;
+}
+
+.pasekBoczny {
+    border: 3px dotted grey;
+    max-height: 500;
+    max-width: 200;
+    margin: auto;
+    float: right;
+}
+
+footer {
+    background-color: blue;
+    text-align: center;
+    color: white;
+    width: 100%;
+    bottom: 0;
+    position: fixed;
+}
+
+nav {
+    height: 40px;
+}
+
+.forecast {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+}
+
+.oMnie {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: x-large;
+}

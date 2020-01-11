@@ -1,0 +1,159 @@
+header{
+    height: 100px;
+    background-color: grey;
+    color: white;
+    text-align: center;
+}
+
+.tytulNaglowka:hover{
+    color: red;
+}
+
+.logo{
+    max-height: 70px;
+    margin: auto;
+}
+
+ul{
+    list-style: none;
+    float: left;    
+}
+
+ul > li{
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: relative;
+    height: 30px;
+}
+
+ul > li > a{
+   padding: 10px;
+   color: #444;
+   text-decoration: none; 
+}
+
+ul > li ul{
+    padding: 0;
+    position: absolute;
+    display: none;
+    left: 0px;
+    top: 30px;
+    width: 200px;
+    text-align: left;
+    background-color: #fcfcfc;
+    border: 1px solid #ccc;
+}
+
+ul > li > a:hover,
+ul > li.hover > a {
+    color: #de5f44;
+    text-decoration: underline;
+}
+
+ul li:hover > ul{
+    display: block;
+}
+
+ul > li ul ul{
+    left: 200px;
+    top: -1px;
+}
+
+ul > li ul li{
+    margin: 0;
+    padding: 0;
+    position: relative;
+    float: none;
+    height: auto;
+}
+
+ul > li ul li a{
+    padding: 10px 20px;
+    color: #505050;
+    text-decoration: none;
+    display: block;
+}
+
+ul > li ul li a:hover,
+ul > li ul li:hover > a{
+    text-decoration: none;
+    color: #fff;
+    background-color: #f26c4f;
+}
+
+.kontener{
+   display: grid;
+   grid-template-columns: 80% 20%;
+   
+}
+
+.glownaKolumna{
+    margin: 100px;
+    margin-left: -200px;
+    float: left;
+    font-style: italic;
+    
+}
+
+.pasekBoczny{
+    font-style: oblique;
+    border-left: 1px dotted black;
+    background-color: powderblue;
+    height: 800px;
+    float: right;
+}
+
+footer{
+    background-color: grey;
+    color: white;
+    text-align: center;
+    height: 50px;
+    display: block;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+nav{
+    height: 32px;
+}
+
+.face{
+    float: left;
+    max-height: 100px;
+    padding: 10px;
+}
+
+.artykulNaglowek{
+  margin-bottom: 50px;  
+}
+
+h1{
+    font-style: normal;
+}
+
+nav{
+    background-color: powderblue;
+    padding-bottom: 5px;
+}
+
+.naglowekBoczny{
+    font-size: x-large;
+    font-style: normal;
+    margin-left: 5px;
+}
+
+.welcome{
+    float: left;
+    max-height: 400px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+body{
+  background-image: url('https://www.imperiumtapet.com/public/uploads/preview/background-1jpg-301533580637ew49r5yw3c.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}

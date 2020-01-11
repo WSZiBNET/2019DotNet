@@ -1,0 +1,146 @@
+header{
+    height: 100px;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+body{
+    background-color: #eee;
+
+}
+
+.tytulNaglowka:hover{
+    color: red;
+}
+.logo {
+    margin: auto;
+    max-height: 70px;
+    
+}
+
+ul {
+    list-style: none;
+    float: left;
+}
+
+ul > li {
+    margin: 0;
+    padding: 0;
+    float: left;
+    position: relative;
+    height: 30px;
+}
+
+ul > li >a {
+    padding: 10px;
+    color:white;
+    text-decoration: none;
+  
+}
+
+ul > li ul {
+    padding: 0;
+    position: absolute;
+    display: none;
+    left: 0px;
+    top: 30px;
+    width: 200px;
+    text-align: left;
+    background-color:  #fcfcfc;
+    border:  1px solid #ccc;
+}
+
+ul > li > a:hover,
+ul > li:hover > a{
+    color: white;
+    text-decoration: underline;
+    box-shadow: 0px 5px 0px black;
+    
+}
+
+ul li:hover > ul {
+    display: block;
+}
+
+ul > li ul ul {
+    left:  200px;
+    top: -1px;
+}
+
+ul > li ul li {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    float: none;
+    height: auto;
+}
+
+ul > li ul li a {
+    padding:  10px 20px;
+    color: #505050;
+    text-decoration: none;
+    display: block;
+}
+
+ul > li ul li a:hover,
+ul > li ul li:hover > a {
+    text-decoration: none;
+    color: #fff;
+    background-color: black;
+
+}
+
+.kontener {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.pasekBoczny{
+    border-left: 1px dotted black;
+    background-color: lightgray;
+    height: auto;
+}
+
+footer{
+    background-color:  black;
+    color: white;
+    text-align: center;
+    height: 50px;
+    display: block;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+nav {
+    height: 40px;
+    background-color: black;
+    
+}
+
+.Omnie_zdj {
+    float: left;
+    width: 200px;
+    height: 200px;
+    margin-left: 0px;
+}
+
+.wiadomosci {
+    margin: 0;
+    padding: .3rem;
+    background-color: #eee;
+    font: 1rem 'Fira Sans', sans-serif;
+    
+}
+
+.wiadomosci > h1,
+.art {
+    margin: .5rem;
+    padding: .3rem;
+    font-size: 1.2rem;
+}
+
+.glownaKolumna {
+    margin-left: -350;
+}

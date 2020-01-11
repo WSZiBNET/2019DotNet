@@ -7,7 +7,9 @@ function zegar(){
     czas+=((minuty<10) ? ":0":";")+minuty;
     czas+=((sekundy<10) ? ":0":";")+sekundy;
     document.getElementById('zegar').innerHTML = czas;
-    setTimeout("zegar()");
+    setTimeout("zegar()",1000);
     
 }
+
+window.ontouchstart('zegar');
 

@@ -1,0 +1,157 @@
+ul {
+  list-style: none;
+  float: left;
+  z-index: 999;
+}
+
+ul > li {
+  margin: 0;
+  padding: 0;
+  float: left;
+  position: relative;
+  height: 30px;
+}
+
+ul > li > a {
+  padding: 10px;
+  color: #ffecb8;
+  text-decoration: none;
+}
+
+ul > li ul {
+  padding: 0;
+  position: absolute;
+  display: none;
+  left: 0px;
+  top: 30px;
+  width: 200px;
+  text-align: left;
+  background-color: #fcfcfc;
+  border: 1px solid #ccc;
+}
+
+ul > li > a:hover,
+ul > li:hover > a {
+  color: #ffc0cb;
+  text-decoration: underline;
+}
+
+ul li:hover > ul {
+  display: block;
+}
+
+ul > li ul ul {
+  left: 200px;
+  top: -1px;
+}
+
+ul > li ul li {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  float: none;
+  height: auto;
+}
+
+ul > li ul li a {
+  padding: 10px 20px;
+  color: #505050;
+  text-emphasis: none;
+  display: block;
+}
+
+ul > li ul li a:hover,
+ul > li il li:hover > a {
+  text-decoration: none;
+  color: #ffc0cb;
+  background-color: #f00c93;
+}
+
+.tytulNaglowka {
+    height: 100px;
+    background-color: #f00c93;
+    color: #fff;
+    text-align: center;
+}
+
+.tytulNaglowka:hover {
+    background-color: #ff748c;
+}
+
+.logo {
+    max-height: 40px;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.kontener {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    position: absolute;
+}
+
+.pasekBoczny {
+    border-left: 1px dotted #000;
+    background-color: #ffecb8;
+    height: 600px;
+}
+
+footer {
+    background-color: #b7ded2;
+    color: #fff;
+    text-align: center;
+    display: block;
+    height: 50px;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+head {
+    height: 100%;
+}
+
+nav {
+    height: 50px;
+    background-color: #997379;
+}
+
+body {
+    background-color: #FFC0CB;
+    margin: 0;
+}
+
+.mainTytul {
+    border-bottom: 1px dotted #f00c93;
+    background-color: #ffecb8;
+}
+
+.mainTresc {
+    padding-top: 10px;
+    background-color: #b7ded2;
+}
+
+article {
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 3px dotted #f00c93;
+}
+
+article a {
+    text-decoration: none;
+    color: #000;
+}
+
+article a:hover {
+    color: #f00c93;
+}
+
+.about {
+    width: 100%;
+}
+
+.foto {
+    max-height: 200px;
+    margin: left;
+}

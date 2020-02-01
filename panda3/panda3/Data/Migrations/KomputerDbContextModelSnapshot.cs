@@ -100,6 +100,30 @@ namespace panda3.Data.Migrations
                     b.ToTable("Rezerwacja");
                 });
 
+            modelBuilder.Entity("panda3.Models.RezerwacjaModelNOwy", b =>
+                {
+                    b.Property<int>("RezerwacjaID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("DataPrzedluzona");
+
+                    b.Property<DateTime>("DataRozpoczecia");
+
+                    b.Property<DateTime>("DataZakonczenia");
+
+                    b.Property<int>("KomputerID");
+
+                    b.Property<int>("UzytkownikID");
+
+                    b.Property<bool>("Wypozyczony");
+
+                    b.Property<bool>("Zarezerwowany");
+
+                    b.HasKey("RezerwacjaID");
+
+                    b.ToTable("Rezerwacja2");
+                });
+
             modelBuilder.Entity("panda3.Models.UzytkownicyModel", b =>
                 {
                     b.Property<int>("UzytkownikId")

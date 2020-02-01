@@ -28,13 +28,51 @@
                 </button>
                 <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">FirmaBel</a>
             </div>
+
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+
+                    <li class="dropdown" id="aboutDrop">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Pracownicy</a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-area="" asp-controller="Employee" asp-action="Index">Wyświetl</a></li>
+                            <li><a asp-area="" asp-controller="Employee" asp-action="Create">Dodaj</a></li>
+                            <li><a asp-area="" asp-controller="Employee" asp-action="Delete">Usuń</a></li>
+                            <li><a asp-area="" asp-controller="Employee" asp-action="Edit">Zmień</a></li>
+                            <li><a asp-area="" asp-controller="Employee" asp-action="Details">Informacje</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" id="aboutDrop">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Dzieły</a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-area="" asp-controller="EmployeeDepartment" asp-action="Index">Wyświetl</a></li>
+                            <li><a asp-area="" asp-controller="EmployeeDepartment" asp-action="Create">Dodaj</a></li>
+                            <li><a asp-area="" asp-controller="EmployeeDepartment" asp-action="Delete">Usuń</a></li>
+                            <li><a asp-area="" asp-controller="EmployeeDepartment" asp-action="Edit">Zmień</a></li>
+                            <li><a asp-area="" asp-controller="EmployeeDepartment" asp-action="Details">Informacje</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown" id="aboutDrop">
+                        <a class="dropdown-toggle" data-toggle="dropdown">Stanowiska Pracy</a>
+                        <ul class="dropdown-menu">
+                            <li><a asp-area="" asp-controller="EmployeePosition" asp-action="Index">Wyświetl</a></li>
+                            <li><a asp-area="" asp-controller="EmployeePosition" asp-action="Create">Dodaj</a></li>
+                            <li><a asp-area="" asp-controller="EmployeePosition" asp-action="Delete">Usuń</a></li>
+                            <li><a asp-area="" asp-controller="EmployeePosition" asp-action="Edit">Zmień</a></li>
+                            <li><a asp-area="" asp-controller="EmployeePosition" asp-action="Details">Informacje</a></li>
+                        </ul>
+                    </li>
+
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
                 @await Html.PartialAsync("_LoginPartial")
+
             </div>
         </div>
     </nav>

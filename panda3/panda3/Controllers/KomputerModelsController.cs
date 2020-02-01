@@ -25,6 +25,11 @@ namespace panda3.Controllers
             return View(await _context.Komputer.ToListAsync());
         }
 
+        public async Task<IActionResult> IndexKlient()
+        {
+            return View(await _context.Komputer.ToListAsync());
+        }
+
         // GET: KomputerModels/Details/5
         public async Task<IActionResult> Details(int? id)
         {

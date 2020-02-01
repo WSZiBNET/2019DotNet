@@ -22,6 +22,13 @@ namespace CarRent.Controllers
             return View();
         }
 
+        public IActionResult Cars()
+        {
+            ViewData["Message"] = "Find your car";
+
+            return View();
+        }
+
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";

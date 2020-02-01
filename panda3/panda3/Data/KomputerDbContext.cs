@@ -21,6 +21,7 @@ namespace panda3.Data
         public DbSet<UzytkownicyModel> Uzytkownicy { get; set; }
         public DbSet<RezerwacjaModel> Rezerwacja { get; set; }
         public DbSet<panda3.Models.RezerwacjaModelNOwy> RezerwacjaModelNOwy { get; set; }
+        public DbSet<panda3.Models.OcenaModel> OcenaModel { get; set; }
 
     }
 }

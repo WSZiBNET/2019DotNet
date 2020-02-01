@@ -1,0 +1,7 @@
+NuGet Package Manager
+Add-Migration DataMigration -Context DataDbContext -OutputDir "Data/Migrations"
+update-database -Context DataDbContext
+
+
+//Po³¹czenie do bazy danych
+(localdb)\MSSQLLocalDB

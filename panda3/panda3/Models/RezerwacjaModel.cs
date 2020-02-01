@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace panda3.Models
 {
     [Table ("Rezerwacja")]
-    public class Rezerwacja
+    public class RezerwacjaModel
     {
         [Key]
         public int RezerwacjaID { get; set; }

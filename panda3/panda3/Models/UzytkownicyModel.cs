@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace panda3.Models
+{ 
     [Table("Uzytkownicy")]
     public class UzytkownicyModel
     {

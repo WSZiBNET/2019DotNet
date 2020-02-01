@@ -18,6 +18,9 @@ namespace FirmaBel.Models
         public decimal Price { get; set; }
         [ForeignKey("ItemCategory")]
         public int Category { get; set; }
+
+        public virtual ItemTypeModel ItemType { get; set; }
+        public virtual ItemCategoryModel ItemCategory { get; set; }
     }
 
     [Table("ItemType")]

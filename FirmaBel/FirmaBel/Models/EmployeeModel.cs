@@ -12,6 +12,7 @@ namespace FirmaBel.Models
     {
         [Key]
         public int ID { get; set; }
+        [ForeignKey("AspNetUsers")]
         public string IDuid { get; set; }
         public string Name { get; set; }
         public string Surname { get; set; }
@@ -25,6 +26,10 @@ namespace FirmaBel.Models
         public virtual ICollection<EmployeeRiseModel> Rise { get; set; }
         public string City { get; set; }
         public string Address { get; set; }
+
+        public virtual ApplicationUser AspNetUsers { get; set; }
+        public virtual EmployeePositionModel EmployeePosition { get; set; }
+        public virtual EmployeeDepartmentModel EmployeeDepartment { get; set; }
     }
 
     [Table("EmployeePosition")]
@@ -53,6 +58,11 @@ namespace FirmaBel.Models
         public string IDuid { get; set; }
         public int Value { get; set; }
         public DateTime TimeStamp{ get; set; }
+
+       
+        public virtual EmployeeModel Employees { get; set; }
+        public virtual ApplicationUser AspNetUsers { get; set; }
+
     }
     
     [Table("EmployeeRise")]
@@ -64,6 +74,8 @@ namespace FirmaBel.Models
         public int IDEmployee { get; set; }
         public decimal Value { get; set; }
         public DateTime TimeStamp { get; set; }
+
+        public virtual EmployeeModel Employees { get; set; }
     }
 
 }

@@ -11,52 +11,15 @@ using System;
 namespace FirmaBel.Data.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    partial class DataDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200201141702_DataMigration2")]
+    partial class DataMigration2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("FirmaBel.Models.ApplicationUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("AccessFailedCount");
-
-                    b.Property<string>("ConcurrencyStamp");
-
-                    b.Property<string>("Email");
-
-                    b.Property<bool>("EmailConfirmed");
-
-                    b.Property<bool>("LockoutEnabled");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd");
-
-                    b.Property<string>("NormalizedEmail");
-
-                    b.Property<string>("NormalizedUserName");
-
-                    b.Property<string>("PasswordHash");
-
-                    b.Property<string>("PhoneNumber");
-
-                    b.Property<bool>("PhoneNumberConfirmed");
-
-                    b.Property<string>("SecurityStamp");
-
-                    b.Property<bool>("TwoFactorEnabled");
-
-                    b.Property<string>("UserName");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("ApplicationUser");
-                });
 
             modelBuilder.Entity("FirmaBel.Models.EmployeeDepartmentModel", b =>
                 {
@@ -75,6 +38,8 @@ namespace FirmaBel.Data.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("EmployeeModelID");
+
                     b.Property<int>("IDEmployee");
 
                     b.Property<string>("IDuid");
@@ -85,9 +50,7 @@ namespace FirmaBel.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("IDEmployee");
-
-                    b.HasIndex("IDuid");
+                    b.HasIndex("EmployeeModelID");
 
                     b.ToTable("EmployeeGrade");
                 });
@@ -117,10 +80,6 @@ namespace FirmaBel.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("Department");
-
-                    b.HasIndex("IDuid");
-
                     b.HasIndex("Position");
 
                     b.ToTable("Employees");
@@ -143,6 +102,8 @@ namespace FirmaBel.Data.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<int?>("EmployeeModelID");
+
                     b.Property<int>("IDEmployee");
 
                     b.Property<DateTime>("TimeStamp");
@@ -151,7 +112,7 @@ namespace FirmaBel.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("IDEmployee");
+                    b.HasIndex("EmployeeModelID");
 
                     b.ToTable("EmployeeRise");
                 });
@@ -182,10 +143,6 @@ namespace FirmaBel.Data.Migrations
                     b.Property<int>("TypeName");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("Category");
-
-                    b.HasIndex("TypeName");
 
                     b.ToTable("Items");
                 });
@@ -221,36 +178,18 @@ namespace FirmaBel.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("IDProduct");
-
-                    b.HasIndex("IDuid");
-
                     b.ToTable("Transactions");
                 });
 
             modelBuilder.Entity("FirmaBel.Models.EmployeeGradeModel", b =>
                 {
-                    b.HasOne("FirmaBel.Models.EmployeeModel", "Employees")
+                    b.HasOne("FirmaBel.Models.EmployeeModel")
                         .WithMany("Grade")
-                        .HasForeignKey("IDEmployee")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("FirmaBel.Models.ApplicationUser", "AspNetUsers")
-                        .WithMany()
-                        .HasForeignKey("IDuid");
+                        .HasForeignKey("EmployeeModelID");
                 });
 
             modelBuilder.Entity("FirmaBel.Models.EmployeeModel", b =>
                 {
-                    b.HasOne("FirmaBel.Models.EmployeeDepartmentModel", "EmployeeDepartment")
-                        .WithMany()
-                        .HasForeignKey("Department")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("FirmaBel.Models.ApplicationUser", "AspNetUsers")
-                        .WithMany()
-                        .HasForeignKey("IDuid");
-
                     b.HasOne("FirmaBel.Models.EmployeePositionModel", "EmployeePosition")
                         .WithMany()
                         .HasForeignKey("Position")
@@ -259,35 +198,9 @@ namespace FirmaBel.Data.Migrations
 
             modelBuilder.Entity("FirmaBel.Models.EmployeeRiseModel", b =>
                 {
-                    b.HasOne("FirmaBel.Models.EmployeeModel", "Employees")
+                    b.HasOne("FirmaBel.Models.EmployeeModel")
                         .WithMany("Rise")
-                        .HasForeignKey("IDEmployee")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("FirmaBel.Models.ItemModel", b =>
-                {
-                    b.HasOne("FirmaBel.Models.ItemCategoryModel", "ItemCategory")
-                        .WithMany()
-                        .HasForeignKey("Category")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("FirmaBel.Models.ItemTypeModel", "ItemType")
-                        .WithMany()
-                        .HasForeignKey("TypeName")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("FirmaBel.Models.TransactionModel", b =>
-                {
-                    b.HasOne("FirmaBel.Models.ItemModel", "Items")
-                        .WithMany()
-                        .HasForeignKey("IDProduct")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("FirmaBel.Models.ApplicationUser", "AspNetUsers")
-                        .WithMany()
-                        .HasForeignKey("IDuid");
+                        .HasForeignKey("EmployeeModelID");
                 });
 #pragma warning restore 612, 618
         }

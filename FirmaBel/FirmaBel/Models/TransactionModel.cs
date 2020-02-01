@@ -20,5 +20,9 @@ namespace FirmaBel.Models
         public decimal TotalPrice { get; set; }
         [ForeignKey("AspNetUsers")]
         public string IDuid { get; set; }
+
+        public virtual ItemModel Items { get; set; }
+        public virtual ApplicationUser AspNetUsers { get; set; }
+       
     }
 }

@@ -22,7 +22,10 @@ namespace FirmaBel.Controllers
         // GET: Employee
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Employees.ToListAsync());
+            var empl = await _context.Employees.ToListAsync();
+            var pos = await _context.EmployeePositions.ToListAsync();
+            var model = new EmployeeViewModel { Employees = empl, Positions = pos };
+            return View(model);
         }
 
         // GET: Employee/Details/5

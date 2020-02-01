@@ -11,9 +11,10 @@ using System;
 namespace FirmaBel.Data.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    partial class DataDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200201144118_DataMigration3")]
+    partial class DataMigration3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -183,10 +184,6 @@ namespace FirmaBel.Data.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("Category");
-
-                    b.HasIndex("TypeName");
-
                     b.ToTable("Items");
                 });
 
@@ -220,10 +217,6 @@ namespace FirmaBel.Data.Migrations
                     b.Property<decimal>("TotalPrice");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("IDProduct");
-
-                    b.HasIndex("IDuid");
 
                     b.ToTable("Transactions");
                 });
@@ -263,31 +256,6 @@ namespace FirmaBel.Data.Migrations
                         .WithMany("Rise")
                         .HasForeignKey("IDEmployee")
                         .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("FirmaBel.Models.ItemModel", b =>
-                {
-                    b.HasOne("FirmaBel.Models.ItemCategoryModel", "ItemCategory")
-                        .WithMany()
-                        .HasForeignKey("Category")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("FirmaBel.Models.ItemTypeModel", "ItemType")
-                        .WithMany()
-                        .HasForeignKey("TypeName")
-                        .OnDelete(DeleteBehavior.Cascade);
-                });
-
-            modelBuilder.Entity("FirmaBel.Models.TransactionModel", b =>
-                {
-                    b.HasOne("FirmaBel.Models.ItemModel", "Items")
-                        .WithMany()
-                        .HasForeignKey("IDProduct")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("FirmaBel.Models.ApplicationUser", "AspNetUsers")
-                        .WithMany()
-                        .HasForeignKey("IDuid");
                 });
 #pragma warning restore 612, 618
         }

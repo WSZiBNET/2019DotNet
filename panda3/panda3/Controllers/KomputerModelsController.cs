@@ -20,9 +20,35 @@ namespace panda3.Controllers
         }
 
         // GET: KomputerModels
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            return View(await _context.Komputer.ToListAsync());
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "Model" : "";
+            ViewData["DateSortParm"] = sortOrder == "Data" ? "date_desc" : "Date";
+          
+            ViewData["CurrentFilter"] = searchString;
+            var komputerModel = from k in _context.Komputer
+                           select k;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                komputerModel = komputerModel.Where(k => k.Model.Contains(searchString)
+                                       || k.Model.Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "Podzespoly":
+                    komputerModel = komputerModel.OrderByDescending(k => k.KartagraficznaID);
+                    break;
+                case "Data":
+                    komputerModel = komputerModel.OrderBy(k => k.DataProdukcji);
+                    break;
+                case "Producent":
+                    komputerModel = komputerModel.OrderByDescending(k => k.Producent);
+                    break;
+                case "Model":
+                    komputerModel = komputerModel.OrderByDescending(k => k.Model);
+                    break;
+            }
+            return View(await komputerModel.AsNoTracking().ToListAsync());
         }
 
         // GET: KomputerModels/Details/5

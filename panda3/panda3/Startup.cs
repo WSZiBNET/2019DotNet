@@ -63,6 +63,8 @@ namespace panda3
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+
         }
     }
 }

@@ -17,14 +17,41 @@ namespace CarRent.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
+            ViewData["Message"] = "Website created to rent a car";
             return View();
         }
 
         public IActionResult Cars()
         {
             ViewData["Message"] = "Find your car";
+
+            return View();
+        }
+
+        public IActionResult ByBrand()
+        {
+            ViewData["Message"] = "Find your car by Brand";
+
+            return View();
+        }
+
+        public IActionResult ByType()
+        {
+            ViewData["Message"] = "Find your car by Type";
+
+            return View();
+        }
+
+        public IActionResult ByProductionDate()
+        {
+            ViewData["Message"] = "Find your car by Production Date";
+
+            return View();
+        }
+
+        public IActionResult ByEquipment()
+        {
+            ViewData["Message"] = "Find your car by ByEquipment";
 
             return View();
         }

@@ -22,16 +22,7 @@ namespace CarRent.Controllers
         // GET: CarsModels
         public async Task<IActionResult> Index()
         {
-            var carList = new List<CarsModel>();
-            var a = new CarsModel { IdCar = 1, Brand = "Audi", Type = "A3", ProductionYear = 1998, Package = "Basic", Combustion = 6 };
-            var b = new CarsModel { IdCar = 2, Brand = "Audi", Type = "A3", ProductionYear = 1998, Package = "Basic", Combustion = 6 };
-            var c = new CarsModel { IdCar = 3, Brand = "Audi", Type = "A3", ProductionYear = 1998, Package = "Basic", Combustion = 6 };
-
-            carList.Add(a);
-            carList.Add(b);
-            carList.Add(c);
-            return View(carList);
-            //return View(await _context.Cars.ToListAsync());
+            return View(await _context.Cars.ToListAsync());
         }
 
         // GET: CarsModels/Details/5

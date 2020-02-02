@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using CarRent.Data;
 using CarRent.Models;
 
+
 namespace CarRent.Controllers
 {
     public class CarsModelsController : Controller
@@ -20,9 +21,22 @@ namespace CarRent.Controllers
         }
 
         // GET: CarsModels
-        public async Task<IActionResult> Index()
+
+
+
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.Cars.ToListAsync());
+
+            var car = from m in _context.Cars
+                         select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                car = car.Where(s => s.Brand.Contains(searchString));
+            }
+
+            return View(await car.ToListAsync());
+           
         }
 
         // GET: CarsModels/Details/5

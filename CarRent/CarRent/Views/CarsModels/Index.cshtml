@@ -6,9 +6,21 @@
 
 <h2>Index</h2>
 
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+
+<form asp-controller="CarsModels" asp-action="Index" method="get">
+    <p>
+
+        Brand: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+
 <table class="table">
     <thead>
         <tr>
@@ -34,32 +46,33 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Brand)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductionYear)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Package)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Combustion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReservationStatus)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdCar">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdCar">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdCar">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductionYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Package)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Combustion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReservationStatus)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdCar">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.IdCar">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdCar">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

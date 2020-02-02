@@ -32,17 +32,6 @@ namespace CarRent.Controllers
         {
             ViewData["Message"] = "Find your car by Brand";
 
-            List<CarModel> carList = new List<CarModel>();
-            carList.Add(new CarModel(1,"Audi", "A3", 1998,"Basic", 6 ));
-            carList.Add(new CarModel(2, "Mercedes", "Sprinter", 2014, "Premium", 10));
-            carList.Add(new CarModel(3, "Hyundai", "Coupe", 2018, "classic", 8));
-
-            ViewData["carList"] = "";
-
-                foreach (var car in carList)
-                {
-                ViewData["carList"] = carList;
-                }
 
 
             return View();

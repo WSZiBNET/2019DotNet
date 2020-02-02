@@ -1,15 +1,21 @@
-Stwórz program dla wypo¿yczalni komputerów, który zawiera
-1. Bazê komputerów dostêpn¹ dla ka¿dego wraz z krótkim opisem ka¿dego modelu oraz cen¹
-2. Mo¿liwoœæ wyszukiwania po modelu
-3. Mo¿liwoœæ wyszukiwania po producencie
-4. Mo¿liwoœæ wyszukiwania i sortowania po dacie produkcji
-5. Mo¿liwoœæ wyszukiwania po podzespo³ach
-6. Konto u¿ytkownika
-- u¿ytkownik, po zalogowaniu,  mo¿e wypo¿yczyæ dany komputer lub zarezerwowaæ go
-- po zalogowaniu powinno siê wyœwietliæ, jakie komputery ma wypo¿yczone, ile jest winien i do kiedy powinien oddaæ dany film
-- jeœli u¿ytkownik przekroczy³ czas wynajmu, powinno mu siê pokazaæ przypomnienie o zwrot wraz z przewidywan¹ kar¹
-7. Ranking komputerów na podstawie ocen u¿ytkowników
-8. Konto administratora
-- mo¿liwoœæ dodania, usuniêcia, zmiany danych komputera i ceny
-- mo¿liwoœæ ustawienia zni¿ki dla u¿ytkowników
-- mo¿liwoœæ przed³u¿enia wynajmu dla poszczególnych u¿ytkowników
+Stwórz program dla Firmy, który zawiera
+
+Bazê przedmiotów i us³ug wraz z cen¹ dostêpn¹ dla ka¿dego
+Mo¿liwoœæ wyszukiwania po przedmiocie
+Mo¿liwoœæ wyszukiwania po us³udze
+Mo¿liwoœæ wyszukiwania i sortowania po cenie i kategorii
+Konto u¿ytkownika:
+u¿ytkownik, po zalogowaniu, mo¿e kupiæ dany przedmiot lub us³ugê
+po zalogowaniu powinno siê wyœwietliæ, jakie przedmioty lub us³ugi ju¿ kupi³
+mo¿e oceniaæ pracowników danej firmy (mo¿e ich te¿ wyszukiwaæ)
+Konto pracownika
+Mo¿e wyœwietliæ swoje oceny
+Mo¿e dodaæ/zmieniæ/usun¹æ zamówienie u¿ytkownika
+Mo¿e daæ zni¿kê u¿ytkownikowi
+Widzi swoje zarobki i podwy¿ki w ostatnim roku
+Konto pracodawcy
+Mo¿e dodaæ/usun¹æ/edytowaæ dane pracowników
+Mo¿e Wyszukiwaæ pracowników po adresie, mieœcie, wieku, ocenach, stanowisku, dziale, w którym pracuj¹
+mo¿e przenosiæ pracowników z dzia³u do dzia³u i awansowaæ
+widzi zarobki pracowników i mo¿e przyznaæ podwy¿kê procentow¹
+Opis Firmy dostêpny dla wszystkich

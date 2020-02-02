@@ -44,6 +44,26 @@ namespace CarRent.Controllers
            
         }
 
+        public async Task<IActionResult> CarSearch2(string searchStringBrand = "", string searchStringType = "")
+        {
+
+            var car = from m in _context.Cars
+                      select m;
+
+            if (!String.IsNullOrEmpty(searchStringBrand))
+            {
+                car = car.Where(s => s.Brand.Contains(searchStringBrand));
+            }
+
+            if (!String.IsNullOrEmpty(searchStringType))
+            {
+                car = car.Where(s => s.Type.Contains(searchStringType));
+            }
+
+            return View(await car.ToListAsync());
+
+        }
+
         // GET: CarsModels/Details/5
         public async Task<IActionResult> Details(int? id)
         {

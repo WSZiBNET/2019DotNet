@@ -49,6 +49,8 @@ namespace FirmaBel.Controllers
         // GET: Employee/Create
         public IActionResult Create()
         {
+            var positions = _context.EmployeePositions.ToList();
+            ViewBag.Positions = positions;
             return View();
         }
 

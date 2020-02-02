@@ -59,7 +59,7 @@
                     @Html.DisplayFor(modelItem => item.Age)
                 </td>
                 <td>
-                    @Model.Positions[item.Position].PositionName
+                    @Model.Positions.Single(x=> x.ID==item.Position).PositionName
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Department)

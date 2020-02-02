@@ -22,8 +22,16 @@ namespace FirmaBel.Controllers
         // GET: Item
         public async Task<IActionResult> Index()
         {
-            var dataDbContext = _context.Items.Include(i => i.ItemCategory).Include(i => i.ItemType);
-            return View(await dataDbContext.ToListAsync());
+         
+
+
+            var item = await _context.Items.ToListAsync();
+            var ittype = await _context.ItemTypes.ToListAsync();
+            var itcat = await _context.ItemCategories.ToListAsync();
+            var model = new ItemViewModel { Items = item, ItemType = ittype, ItemCategory = itcat };
+            return View(model);
+
+
         }
 
         // GET: Item/Details/5
@@ -49,8 +57,8 @@ namespace FirmaBel.Controllers
         // GET: Item/Create
         public IActionResult Create()
         {
-            ViewData["Category"] = new SelectList(_context.ItemCategories, "ID", "ID");
-            ViewData["TypeName"] = new SelectList(_context.ItemTypes, "ID", "ID");
+            ViewData["Category"] = new SelectList(_context.ItemCategories, "ID", "CategoryName");
+            ViewData["TypeName"] = new SelectList(_context.ItemTypes, "ID", "TypeName");
             return View();
         }
 

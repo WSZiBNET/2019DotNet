@@ -22,7 +22,7 @@ namespace FirmaBel.Models
         public string IDuid { get; set; }
 
         public virtual ItemModel Items { get; set; }
-        public virtual ApplicationUser AspNetUsers { get; set; }
+        public virtual  ApplicationUser AspNetUsers { get; set; }
        
     }
 }

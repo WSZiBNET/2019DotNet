@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FirmaBel.Data;
 using FirmaBel.Models;
+using Microsoft.AspNetCore.Identity;
+
+
 
 namespace FirmaBel.Controllers
 {
@@ -48,9 +51,17 @@ namespace FirmaBel.Controllers
 
         // GET: Transaction/Create
         public IActionResult Create()
+            
         {
-            ViewData["IDuid"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
-            ViewData["IDProduct"] = new SelectList(_context.Items, "ID", "ID");
+            //var id = User.Identity.Name;
+
+            ApplicationUser uzytkownik = new ApplicationUser();
+            var userID = uzytkownik.UserName;
+
+            //ViewData["IDuid"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
+
+            ViewBag.IDuid = userID;
+            ViewData["IDProduct"] = new SelectList(_context.Items, "ID", "Name");
             return View();
         }
 

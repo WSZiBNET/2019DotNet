@@ -9,5 +9,7 @@ namespace FirmaBel.Models
     {
         public List<EmployeeModel> Employees { get; set; }
         public List<EmployeePositionModel> Positions { get; set; }
+        public List<EmployeeDepartmentModel> Departments { get; set; }
+
     }
 }

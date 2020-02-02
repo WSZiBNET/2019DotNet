@@ -24,7 +24,8 @@ namespace FirmaBel.Controllers
         {
             var empl = await _context.Employees.ToListAsync();
             var pos = await _context.EmployeePositions.ToListAsync();
-            var model = new EmployeeViewModel { Employees = empl, Positions = pos };
+            var dep = await _context.EmployeeDepartments.ToListAsync();
+            var model = new EmployeeViewModel { Employees = empl, Positions = pos ,Departments = dep};
             return View(model);
         }
 
@@ -49,6 +50,12 @@ namespace FirmaBel.Controllers
         // GET: Employee/Create
         public IActionResult Create()
         {
+            var empl =  _context.EmployeePositions.ToList();
+            ViewBag.ListOfPositions = empl;
+
+            var emplDep = _context.EmployeeDepartments.ToList();
+            ViewBag.ListOfDepartments = emplDep;
+
             return View();
         }
 
@@ -59,11 +66,14 @@ namespace FirmaBel.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,IDuid,Name,Surname,Age,Position,Department,Salary,City,Address")] EmployeeModel employeeModel)
         {
+
             if (ModelState.IsValid)
             {
                 _context.Add(employeeModel);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+
+                
             }
             return View(employeeModel);
         }

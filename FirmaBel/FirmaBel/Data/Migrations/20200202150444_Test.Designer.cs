@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
-namespace FirmaBel.Data.Midrations
+namespace FirmaBel.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200202135059_TestUser")]
-    partial class TestUser
+    [Migration("20200202150444_Test")]
+    partial class Test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -72,6 +72,174 @@ namespace FirmaBel.Data.Midrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.EmployeeDepartmentModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("DepartmentName");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("EmployeeDepartment");
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.EmployeeGradeModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("IDEmployee");
+
+                    b.Property<string>("IDuid");
+
+                    b.Property<DateTime>("TimeStamp");
+
+                    b.Property<int>("Value");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("IDEmployee");
+
+                    b.HasIndex("IDuid");
+
+                    b.ToTable("EmployeeGrade");
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.EmployeeModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Address");
+
+                    b.Property<int>("Age");
+
+                    b.Property<string>("City");
+
+                    b.Property<int>("Department");
+
+                    b.Property<string>("IDuid");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("Position");
+
+                    b.Property<decimal>("Salary");
+
+                    b.Property<string>("Surname");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("Department");
+
+                    b.HasIndex("IDuid");
+
+                    b.HasIndex("Position");
+
+                    b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.EmployeePositionModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("PositionName");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("EmployeePosition");
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.EmployeeRiseModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("IDEmployee");
+
+                    b.Property<DateTime>("TimeStamp");
+
+                    b.Property<decimal>("Value");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("IDEmployee");
+
+                    b.ToTable("EmployeeRise");
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.ItemCategoryModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CategoryName");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("ItemCategory");
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.ItemModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Category");
+
+                    b.Property<string>("Name");
+
+                    b.Property<decimal>("Price");
+
+                    b.Property<int>("TypeName");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("Category");
+
+                    b.HasIndex("TypeName");
+
+                    b.ToTable("Items");
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.ItemTypeModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("TypeName");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("ItemType");
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.TransactionModel", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Amount");
+
+                    b.Property<int>("IDProduct");
+
+                    b.Property<string>("IDuid");
+
+                    b.Property<decimal>("Price");
+
+                    b.Property<DateTime>("TimeStamp");
+
+                    b.Property<decimal>("TotalPrice");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("IDProduct");
+
+                    b.ToTable("Transactions");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -180,6 +348,64 @@ namespace FirmaBel.Data.Midrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.EmployeeGradeModel", b =>
+                {
+                    b.HasOne("FirmaBel.Models.EmployeeModel", "Employees")
+                        .WithMany("Grade")
+                        .HasForeignKey("IDEmployee")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("FirmaBel.Models.ApplicationUser", "AspNetUsers")
+                        .WithMany()
+                        .HasForeignKey("IDuid");
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.EmployeeModel", b =>
+                {
+                    b.HasOne("FirmaBel.Models.EmployeeDepartmentModel", "EmployeeDepartment")
+                        .WithMany()
+                        .HasForeignKey("Department")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("FirmaBel.Models.ApplicationUser", "AspNetUsers")
+                        .WithMany()
+                        .HasForeignKey("IDuid");
+
+                    b.HasOne("FirmaBel.Models.EmployeePositionModel", "EmployeePosition")
+                        .WithMany()
+                        .HasForeignKey("Position")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.EmployeeRiseModel", b =>
+                {
+                    b.HasOne("FirmaBel.Models.EmployeeModel", "Employees")
+                        .WithMany("Rise")
+                        .HasForeignKey("IDEmployee")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.ItemModel", b =>
+                {
+                    b.HasOne("FirmaBel.Models.ItemCategoryModel", "ItemCategory")
+                        .WithMany()
+                        .HasForeignKey("Category")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("FirmaBel.Models.ItemTypeModel", "ItemType")
+                        .WithMany()
+                        .HasForeignKey("TypeName")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("FirmaBel.Models.TransactionModel", b =>
+                {
+                    b.HasOne("FirmaBel.Models.ItemModel", "Items")
+                        .WithMany()
+                        .HasForeignKey("IDProduct")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

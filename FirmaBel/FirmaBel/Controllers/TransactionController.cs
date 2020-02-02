@@ -15,9 +15,9 @@ namespace FirmaBel.Controllers
 {
     public class TransactionController : Controller
     {
-        private readonly DataDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public TransactionController(DataDbContext context)
+        public TransactionController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -25,8 +25,10 @@ namespace FirmaBel.Controllers
         // GET: Transaction
         public async Task<IActionResult> Index()
         {
-            var dataDbContext = _context.Transactions.Include(t => t.AspNetUsers).Include(t => t.Items);
-            return View(await dataDbContext.ToListAsync());
+            var ApplicationDbContext = _context.Transactions.Include(t => t.AspNetUsers).Include(t => t.Items);
+            return View(await ApplicationDbContext.ToListAsync());
+
+            //return View();
         }
 
         // GET: Transaction/Details/5
@@ -38,7 +40,7 @@ namespace FirmaBel.Controllers
             }
 
             var transactionModel = await _context.Transactions
-                .Include(t => t.AspNetUsers)
+                //.Include(t => t.AspNetUsers)
                 .Include(t => t.Items)
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (transactionModel == null)
@@ -53,14 +55,7 @@ namespace FirmaBel.Controllers
         public IActionResult Create()
             
         {
-            //var id = User.Identity.Name;
-
-            ApplicationUser uzytkownik = new ApplicationUser();
-            var userID = uzytkownik.UserName;
-
-            //ViewData["IDuid"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id");
-
-            ViewBag.IDuid = userID;
+            
             ViewData["IDProduct"] = new SelectList(_context.Items, "ID", "Name");
             return View();
         }
@@ -71,6 +66,8 @@ namespace FirmaBel.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,TimeStamp,IDProduct,Price,Amount,TotalPrice,IDuid")] TransactionModel transactionModel)
+                  //  public async Task<IActionResult> Create([Bind("ID,TimeStamp,IDProduct,Price,Amount,TotalPrice")] TransactionModel transactionModel)
+
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +75,8 @@ namespace FirmaBel.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IDuid"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id", transactionModel.IDuid);
+            //ViewData["IDuid"] = new SelectList(_context.Set<ApplicationUser>(), "Id", "Id", transactionModel.IDuid);
+            ViewBag.IDuid = HttpContext.User.Identity.Name;
             ViewData["IDProduct"] = new SelectList(_context.Items, "ID", "ID", transactionModel.IDProduct);
             return View(transactionModel);
         }
@@ -147,7 +145,7 @@ namespace FirmaBel.Controllers
             }
 
             var transactionModel = await _context.Transactions
-                .Include(t => t.AspNetUsers)
+                //.Include(t => t.AspNetUsers)
                 .Include(t => t.Items)
                 .SingleOrDefaultAsync(m => m.ID == id);
             if (transactionModel == null)

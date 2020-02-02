@@ -22,5 +22,20 @@ namespace FirmaBel.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
         }
+        public DbSet<EmployeeModel> Employees { get; set; }
+        public DbSet<EmployeePositionModel> EmployeePositions { get; set; }
+        public DbSet<EmployeeDepartmentModel> EmployeeDepartments { get; set; }
+        public DbSet<EmployeeGradeModel> EmployeeGrades { get; set; }
+        public DbSet<EmployeeRiseModel> EmployeeRises { get; set; }
+
+
+
+        public DbSet<ItemModel> Items { get; set; }
+        public DbSet<ItemTypeModel> ItemTypes { get; set; }
+        public DbSet<ItemCategoryModel> ItemCategories { get; set; }
+
+
+        public DbSet<TransactionModel> Transactions { get; set; }
+
     }
 }

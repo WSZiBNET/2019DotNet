@@ -12,9 +12,9 @@ namespace FirmaBel.Controllers
 {
     public class EmployeeDepartmentController : Controller
     {
-        private readonly DataDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public EmployeeDepartmentController(DataDbContext context)
+        public EmployeeDepartmentController(ApplicationDbContext context)
         {
             _context = context;
         }

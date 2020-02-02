@@ -12,9 +12,9 @@ namespace FirmaBel.Controllers
 {
     public class ItemCategoryController : Controller
     {
-        private readonly DataDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public ItemCategoryController(DataDbContext context)
+        public ItemCategoryController(ApplicationDbContext context)
         {
             _context = context;
         }

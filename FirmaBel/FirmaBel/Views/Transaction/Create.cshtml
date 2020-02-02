@@ -1,4 +1,5 @@
 ﻿@model FirmaBel.Models.TransactionModel
+@inject UserManager<ApplicationUser> UserManager
 
 @{
     ViewData["Title"] = "Create";
@@ -39,7 +40,7 @@
             <div class="form-group">
                 <label asp-for="IDuid" class="control-label"></label>
                 @*<select asp-for="IDuid" class ="form-control" asp-items="ViewBag.IDuid"></select>*@
-                <input asp-for="IDuid" class="form-control" value="@ViewBag.IDuid" />
+                <input asp-for="IDuid" class="form-control" value="@UserManager.GetUserId(User)" />
                 <span asp-validation-for="IDuid" class="text-danger"></span>
             </div>
             <div class="form-group">

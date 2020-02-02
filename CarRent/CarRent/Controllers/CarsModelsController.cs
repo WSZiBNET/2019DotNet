@@ -24,15 +24,20 @@ namespace CarRent.Controllers
 
 
 
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchStringBrand="", string searchStringType = "")
         {
-
+          
             var car = from m in _context.Cars
                          select m;
 
-            if (!String.IsNullOrEmpty(searchString))
+            if (!String.IsNullOrEmpty(searchStringBrand))
             {
-                car = car.Where(s => s.Brand.Contains(searchString));
+                car = car.Where(s => s.Brand.Contains(searchStringBrand));
+            }
+
+            if (!String.IsNullOrEmpty(searchStringType))
+            {
+                car = car.Where(s => s.Type.Contains(searchStringType));
             }
 
             return View(await car.ToListAsync());

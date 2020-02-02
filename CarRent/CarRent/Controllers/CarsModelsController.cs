@@ -54,7 +54,7 @@ namespace CarRent.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdCar,Brand,Type,ProductionYear,Package,Combustion")] CarsModel carsModel)
+        public async Task<IActionResult> Create([Bind("IdCar,Brand,Type,ProductionYear,Package,Combustion,ReservationStatus")] CarsModel carsModel)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace CarRent.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdCar,Brand,Type,ProductionYear,Package,Combustion")] CarsModel carsModel)
+        public async Task<IActionResult> Edit(int id, [Bind("IdCar,Brand,Type,ProductionYear,Package,Combustion,ReservationStatus")] CarsModel carsModel)
         {
             if (id != carsModel.IdCar)
             {

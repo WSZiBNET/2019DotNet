@@ -17,5 +17,6 @@ namespace CarRent.Models
         public int ProductionYear { get; set; }
         public string Package { get; set; }
         public double Combustion { get; set; }
+        public Boolean ReservationStatus { get; set; }
     }
 }

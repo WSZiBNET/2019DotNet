@@ -21,6 +21,7 @@ namespace CarRent.Models
         public DateTime ReturnDate { get; set; }
         public DateTime PayDate { get; set; }
         public byte Score { get; set; }
+       
 
         public virtual CarsModel Cars { get; set; }
         public virtual ClientModel Clients { get; set; }
